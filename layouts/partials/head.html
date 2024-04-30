@@ -1,0 +1,73 @@
+<head>
+    {{ $jsonStr := .Site.Data.data.common_data.schemas.logo | jsonify}}
+    {{ $jsonStr = replace $jsonStr "\\u003c" "<" }}
+    {{ $jsonStr = replace $jsonStr "\\u003e" ">" }}
+    {{ $jsonString :=  $jsonStr | replaceRE "<#!#!#!>keyword_location_url<#!#!#!>" .Permalink }}
+    {{ $jsonString =  $jsonString | replaceRE "<#!#!#!>service_name<#!#!#!>" .Params.serviceName }}
+    {{ $jsonString =  $jsonString | replaceRE "<#!#!#!>city-state-zipcode<#!#!#!>" .Params.zipCode }}
+    <script type="application/ld+json">{{ $jsonString | safeJS }}</script>
+    
+
+    {{ $jsonStr := .Site.Data.data.common_data.schemas.website | jsonify}}
+    {{ $jsonStr = replace $jsonStr "\\u003c" "<" }}
+    {{ $jsonStr = replace $jsonStr "\\u003e" ">" }}
+    {{ $jsonString :=  $jsonStr | replaceRE "<#!#!#!>keyword_location_url<#!#!#!>" .Permalink }}
+    {{ $jsonString =  $jsonString | replaceRE "<#!#!#!>service_name<#!#!#!>" .Params.serviceName }}
+    {{ $jsonString =  $jsonString | replaceRE "<#!#!#!>city-state-zipcode<#!#!#!>" .Params.zipCode }}
+    <script type="application/ld+json">{{ $jsonString | safeJS }}</script>
+
+
+    {{ $jsonStr := .Site.Data.data.common_data.schemas.webpage | jsonify}}
+    {{ $jsonStr = replace $jsonStr "\\u003c" "<" }}
+    {{ $jsonStr = replace $jsonStr "\\u003e" ">" }}
+    {{ $jsonString :=  $jsonStr | replaceRE "<#!#!#!>keyword_location_url<#!#!#!>" .Permalink }}
+    {{ $jsonString =  $jsonString | replaceRE "<#!#!#!>service_name<#!#!#!>" .Params.serviceName }}
+    {{ $jsonString =  $jsonString | replaceRE "<#!#!#!>city-state-zipcode<#!#!#!>" .Params.zipCode }}
+    <script type="application/ld+json">{{ $jsonString | safeJS }}</script>
+
+    {{ $jsonStr := .Site.Data.data.common_data.schemas.allFAQ | jsonify}}
+    {{ $jsonStr = replace $jsonStr "\\u003c" "<" }}
+    {{ $jsonStr = replace $jsonStr "\\u003e" ">" }}
+    {{ $jsonString :=  $jsonStr | replaceRE "<#!#!#!>keyword_location_url<#!#!#!>" .Permalink }}
+    {{ $jsonString =  $jsonString | replaceRE "<#!#!#!>service_name<#!#!#!>" .Params.serviceName }}
+    {{ $jsonString =  $jsonString | replaceRE "<#!#!#!>city-state-zipcode<#!#!#!>" .Params.zipCode }}
+    <script type="application/ld+json">{{ $jsonString | safeJS }}</script>
+
+    {{ $jsonStr := .Site.Data.data.common_data.schemas.howToSeo | jsonify}}
+    {{ $jsonStr = replace $jsonStr "\\u003c" "<" }}
+    {{ $jsonStr = replace $jsonStr "\\u003e" ">" }}
+    {{ $jsonString :=  $jsonStr | replaceRE "<#!#!#!>keyword_location_url<#!#!#!>" .Permalink }}
+    {{ $jsonString =  $jsonString | replaceRE "<#!#!#!>service_name<#!#!#!>" .Params.serviceName }}
+    {{ $jsonString =  $jsonString | replaceRE "<#!#!#!>city-state-zipcode<#!#!#!>" .Params.zipCode }}
+    <script type="application/ld+json">{{ $jsonString | safeJS }}</script>
+
+    {{ $jsonStr := .Site.Data.data.common_data.schemas.localBusinessSeo | jsonify}}
+    {{ $jsonStr = replace $jsonStr "\\u003c" "<" }}
+    {{ $jsonStr = replace $jsonStr "\\u003e" ">" }}
+    {{ $jsonString :=  $jsonStr | replaceRE "<#!#!#!>keyword_location_url<#!#!#!>" .Permalink }}
+    {{ $jsonString =  $jsonString | replaceRE "<#!#!#!>service_name<#!#!#!>" .Params.serviceName }}
+    {{ $jsonString =  $jsonString | replaceRE "<#!#!#!>city-state-zipcode<#!#!#!>" .Params.zipCode }}
+    <script type="application/ld+json">{{ $jsonString | safeJS }}</script>
+
+    {{ $jsonStr := .Site.Data.data.common_data.schemas.serviceSeo | jsonify}}
+    {{ $jsonStr = replace $jsonStr "\\u003c" "<" }}
+    {{ $jsonStr = replace $jsonStr "\\u003e" ">" }}
+    {{ $jsonString :=  $jsonStr | replaceRE "<#!#!#!>keyword_location_url<#!#!#!>" .Permalink }}
+    {{ $jsonString =  $jsonString | replaceRE "<#!#!#!>service_name<#!#!#!>" .Params.serviceName }}
+    {{ $jsonString =  $jsonString | replaceRE "<#!#!#!>city-state-zipcode<#!#!#!>" .Params.zipCode }}
+    <script type="application/ld+json">{{ $jsonString | safeJS }}</script>
+      
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true">
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/css/style.css">
+    {{ $title := site.Title }}
+    {{ if not .IsHome }}
+    {{ $title = printf "%s | %s" .Title site.Title }}
+    {{ end }}
+    <title> {{ $title }} </title>
+</head>

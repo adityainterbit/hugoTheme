@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{ partial "head.html" . }}
+
+<body>
+    <header class="w-full flex items-center mr-auto ml-auto justify-center flex-col bg-cover bg-center">
+        <!-- Top Header -->
+        {{ partial "nav.html" . }}
+        <!-- /Top Header -->
+        {{ partial "breadcrumb.html" . }}
+    </header>
+    <!-- Main Content -->
+    <main>
+        <!-- Contact us content -->
+        {{ partial "contactus.html" . }}
+        {{ partial "callbackRequest.html" . }}
+        <!-- /Contact us content -->
+    </main>
+    <!-- /Main Content -->
+    <!-- Footer -->
+    {{ partial "footer.html" . }}
+    <!-- /Footer -->
+</body>
+<script src="{{ relURL "js/script.js" }}" defer></script>
+</html>

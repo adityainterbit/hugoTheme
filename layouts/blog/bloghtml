@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+{{ partial "head.html" . }}
+
+
+<body>
+  <div>
+    <div class="w-full flex items-center mr-auto ml-auto justify-center flex-col bg-cover bg-center undefined">
+      {{ partial "nav.html" . }}
+      {{ partial "breadcrumb.html" . }}
+      {{/*  {{ partial "contactusbradcum.html" . }}  */}}
+      {{/*  {{ partial "callbackRequest.html" . }}  */}}
+      {{/*  {{ partial "bloglist.html" . }}  */}}
+      {{ partial "footer.html" . }}
+
+    </div>
+  </div>
+
+  {{/*  {{ partial "header.html" . }}  */}}
+  <main>
+    {{/*  {{ block "main" . }}{{ end }}  */}}
+  </main>
+
+
+  {{/*  {{ partial "footer.html" . }}  */}}
+
+</body>
+<script>
+  function toggleMenu() {
+      var menu = document.getElementById("service_menu");
+      menu.classList.toggle("hidden");
+  }
+</script>
+</html>

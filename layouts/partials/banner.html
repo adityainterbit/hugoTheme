@@ -1,0 +1,242 @@
+<!-- Hero Section -->
+<section
+    class="w-full pt-28 flex mr-auto ml-auto flex-col bg-cover bg-center text-white relative items-center justify-center">
+    <img alt="banner alt" title="banner title" sizes="100vw" src="{{ .Site.Data.data.home.banner_image }}"
+        decoding="async" data-nimg="fill"
+        class="-z-10 absolute h-full w-full left-0 top-0 right-0 bottom-0 object-cover" loading="eager" />
+    <div
+        class="w-10/12 lg:w-11/12 max-w-screen-2xl flex items-center justify-center flex-col bg-cover bg-center  pt-2 pb-[220px] md:py-5 lg:py-10 ">
+        <div class="z-10 flex w-full flex-col items-center justify-center md:grid md:grid-cols-2">
+            <div class="flex flex-col justify-center items-center">
+                <a title="{{ .Site.Data.data.common_data.call_btn_title }}"
+                    class="btnPrimary bg-pri flex w-fit items-center gap-3 rounded-full py-3 px-5 text-center lg:px-7 cursor-pointer  bg-transparent text-black"
+                    href="tel:{{ .Site.Data.data.common_data.phone }}">
+                    <span class="bg-pri text-white p-2 rounded-full bg-[--primaryColor]">
+                        <span class="undefined"></span>
+                        <span class="undefined"></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            aria-hidden="true" class=" h-5 lg:h-7">
+                            <path fill-rule="evenodd"
+                                d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="undefined"></span>
+                    </span>
+                    <span>
+                        <p class="font-semibold uppercase">{{ .Site.Data.data.common_data.call_btn_title }}</p>
+                        <p class="-mt-1 text-3xl font-bold ">{{ .Site.Data.data.common_data.phone }}</p>
+                    </span>
+                </a>
+                <div class="z-10 flex flex-col items-center justify-center w-full">
+                    <div class="w-full lg:mt-5 px-3 text-center py-2 rounded-2xl text-[--primaryColor]">
+                        <div class="text-2xl md:text-3xl lg:text-5xl font-extrabold uppercase text-pri">
+                            <p>{{ .Site.Data.data.common_data.city }} {{ .Site.Data.data.common_data.default_service }}
+                            </p>
+                        </div>
+                        <h1 class="text-lg md:text-3xl lg:text-3xl font-extrabold mt-1 md:mt-3 text-white">
+                            <div class="text-xl md:text-2xl lg:text-3xl font-extrabold mt-0 mb-0 text-black">
+                                <p>{{ .Title }}</p>
+                            </div>
+                        </h1>
+                    </div>
+                    <div
+                        class="hidden w-full md:flex flex-wrap justify-center md:justify-center lg:justify-center max-w-screen-2xl mt-10 md:mt-32 lg:mt-36 gap-y-2 gap-x-3">
+
+                        {{ range $key, $value := .Site.Data.data.common_data }}
+                        {{ if (strings.HasPrefix $key "pros_") }}
+                        <div
+                            class="w-11/12 md:w-auto lg:w-auto bg-white text-black flex text-sm lg:text-base space-x-2 pr-3 py-2  items-center">
+                            <div class="flex text-sm lg:text-base space-x-2 "></div>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                aria-hidden="true" class="h-5 text-black">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM6.75 9.25a.75.75 0 000 1.5h4.59l-2.1 1.95a.75.75 0 001.02 1.1l3.5-3.25a.75.75 0 000-1.1l-3.5-3.25a.75.75 0 10-1.02 1.1l2.1 1.95H6.75z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <div class="text-left truncate">
+                                <p>{{ $value }}</p>
+                            </div>
+                        </div>
+                        {{ end }}
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+            <div class="z-10 w-full flex-col items-center justify-center md:flex hidden">
+                <div
+                    class="max-w-[362px] md:w-[362px] md:bg-whit0 bg-[#f6f6f6] rounded-md px-5 py-3 bordr md:border-0 undefined">
+                    <h2 class="text-center font-semibold md:font-bold text-black mt-0 text-3xl">
+                        <p>{{ .Site.Data.data.common_data.contact_form_title }}</p>
+                    </h2>
+                    <form class="mt-2 flex flex-col gap-3" method="post">
+                        {{ range .Site.Data.data.common_data.contact_form_feilds }}
+                        <div class="flex flex-row items-center gap-2 bg-white rounded p-2 border border-gray-300">
+                            <div class="font-size-[20px] border-r border-solid border-gray-500 pr-2">
+                                {{ if eq .type "text" }}
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                    aria-hidden="true" class="h-6 w-6 text-gray-500">
+                                    <path
+                                        d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 00-13.074.003z">
+                                    </path>
+                                </svg>
+                                {{ else if eq .type "email" }}
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                    aria-hidden="true" class="h-6 w-6 text-gray-500">
+                                    <path
+                                        d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z">
+                                    </path>
+                                    <path
+                                        d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z">
+                                    </path>
+                                </svg>
+                                {{ else if eq .type "tel" }}
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                    aria-hidden="true" class="h-6 w-6 text-gray-500">
+                                    <path fill-rule="evenodd"
+                                        d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 012.43 8.326 13.019 13.019 0 012 5V3.5z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                {{ end }}
+                            </div>
+                            <div class="w-full">
+                                {{ if eq .type "textarea" }}
+                                <textarea class="w-full border-0 p-1 text-black" id="{{ .name }}" name="{{ .name }}"
+                                    type="{{ .type }}" placeholder="{{ .placeholder }}" required=""></textarea>
+                                {{ else }}
+                                <input required="" id="{{ .name }}" name="{{ .name }}" type="{{ .type }}"
+                                    placeholder="{{ .placeholder }}" class="w-full border-0 p-1 text-black" value="" />
+                                {{ end }}
+                            </div>
+                        </div>
+                        {{ end }}
+                        <div class="flex flex-row items-center gap-2">
+                            <div class="w-full">
+                                <button type="submit"
+                                    class="w-full bg-pri p-2 text-xl text-white rounded bg-[--primaryColor]">{{ .Site.Data.data.common_data.contact_form_submit }}</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Hero Section -->
+<!-- Mobile Banner Content -->
+<div
+    class="w-10/12 lg:w-9/12 max-w-screen-2xl flex items-center justify-center flex-col bg-cover bg-center  md:hidden !mt-[-110px] mb-4 bg-white/90 rounded-lg p-4 shadow-lg">
+    <div
+        class="w-full flex md:hidden flex-wrap justify-center md:justify-center lg:justify-center max-w-screen-2xl mt-0 md:mt-32 lg:mt-36 gap-y-2 gap-x-3">
+
+
+
+        {{ range $key, $value := .Site.Data.data.common_data }}
+        {{ if (strings.HasPrefix $key "pros_") }}
+        <div
+            class="w-11/12 md:w-auto lg:w-auto  text-black flex text-sm lg:text-base space-x-2 pr-3 py-1  items-center">
+            <div class="flex text-sm lg:text-base space-x-2 "></div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                class="h-5 text-black">
+                <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM6.75 9.25a.75.75 0 000 1.5h4.59l-2.1 1.95a.75.75 0 001.02 1.1l3.5-3.25a.75.75 0 000-1.1l-3.5-3.25a.75.75 0 10-1.02 1.1l2.1 1.95H6.75z"
+                    clip-rule="evenodd"></path>
+            </svg>
+            <div class="text-left truncate">
+                <p>{{ $value }}</p>
+            </div>
+        </div>
+        {{ end }}
+        {{ end }}
+
+
+    </div>
+</div>
+
+<a title="{{ .Site.Data.data.common_data.call_btn_title }}"
+    class="btnPrimary bg-[--primaryColor] flex md:hidden w-fit items-center gap-3 rounded-full py-3 px-5 text-center lg:px-7 cursor-pointer text-white"
+    href="tel:{{ .Site.Data.data.common_data.phone }}">
+    <span class="undefined">
+        <span class=""></span>
+        <span class=""></span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+            class="h-7 lg:h-9 undefined">
+            <path fill-rule="evenodd"
+                d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z"
+                clip-rule="evenodd"></path>
+        </svg>
+        <span class=""></span>
+    </span>
+    <span>
+        <p class="font-semibold uppercase">{{ .Site.Data.data.common_data.call_btn_title }}</p>
+        <p class="-mt-1 text-3xl font-extrabold">{{ .Site.Data.data.common_data.phone }}</p>
+    </span>
+</a>
+
+<div
+    class="lg:w-9/12 max-w-screen-2xl flex items-center justify-center flex-col bg-cover bg-center mb-4 w-11/12 md:hidden mt-4">
+    <div class="z-10 w-full flex-col items-center justify-center md:flex">
+        <div
+            class="max-w-[362px] md:w-[362px] bg-black/10 md:bg-whit0 bg-[#f6f6f6] rounded-md px-5 py-3 bordr md:border-0 undefined">
+            <h2 class="text-center font-semibold md:font-bold text-black mt-0 text-3xl">
+                <p>{{ .Site.Data.data.common_data.contact_form_title }}</p>
+            </h2>
+            <form class="mt-2 flex flex-col gap-3" method="post">
+                {{ range .Site.Data.data.common_data.contact_form_feilds }}
+                <div class="flex flex-row items-center gap-2 bg-white rounded p-2 border border-gray-300">
+                    <div class="font-size-[20px] border-r border-solid border-gray-500 pr-2">
+                        {{ if eq .type "text" }}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                            aria-hidden="true" class="h-6 w-6 text-gray-500">
+                            <path
+                                d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 00-13.074.003z">
+                            </path>
+                        </svg>
+                        {{ else if eq .type "email" }}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                            aria-hidden="true" class="h-6 w-6 text-gray-500">
+                            <path
+                                d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z">
+                            </path>
+                            <path
+                                d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z">
+                            </path>
+                        </svg>
+                        {{ else if eq .type "tel" }}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                            aria-hidden="true" class="h-6 w-6 text-gray-500">
+                            <path fill-rule="evenodd"
+                                d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 012.43 8.326 13.019 13.019 0 012 5V3.5z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        {{ end }}
+                    </div>
+                    <div class="w-full">
+                        {{ if eq .type "text" }}
+                        <input required="" id="{{ .name }}" name="{{ .name }}" type="text"
+                            placeholder="{{ .placeholder }}" class="w-full border-0 p-1 text-black" value="" />
+                        {{ else if eq .type "email" }}
+                        <input required="" id="{{ .name }}" name="{{ .name }}" type="email"
+                            placeholder="{{ .placeholder }}" class="w-full border-0 p-1 text-black" value="" />
+                        {{ else if eq .type "tel" }}
+                        <input required="" id="{{ .name }}" name="{{ .name }}" type="tel"
+                            placeholder="{{ .placeholder }}" class="w-full border-0 p-1 text-black" value="" />
+                        {{ else if eq .type "textarea" }}
+                        <textarea class="w-full border-0 p-1 text-black" id="{{ .name }}" name="{{ .name }}" type="text"
+                            placeholder="{{ .placeholder }}" required=""></textarea>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+                <div class="flex flex-row items-center gap-2">
+                    <div class="w-full">
+                        <button type="submit"
+                            class="w-full bg-pri p-2 text-xl text-white rounded bg-[--primaryColor]">{{ .Site.Data.data.common_data.contact_form_submit }}</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<!-- /Mobile Banner Content -->

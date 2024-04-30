@@ -1,0 +1,35 @@
+<!-- Blog content -->
+<div
+class="w-10/12 lg:w-9/12 mx-auto max-w-screen-2xl flex items-center justify-center flex-col bg-cover bg-center mb-20">
+<h1 class="text-3xl font-extrabold lg:text-3xl my-10 text-pri text-center  text-[--primaryColor]">
+  {{ .Title }}</h1>
+<div class="w-full flex flex-col items-center">
+    {{ range .Data.Pages }}
+        <div class="grid lg:grid-cols-blog gap-5 lg:gap-7 w-full mb-10 lg:mb-8">
+            <a class="overflow-hidden rounded-md" href="{{ .Permalink }}">
+                <div style="background-image: url('{{ .Params.smallImage }}');"
+                    class="bg-cover bg-center w-full h-[200px] p-20 hover:scale-110 transition-all"></div>
+            </a>
+            <div class="space-y-2 lg:space-y-3 flex flex-col lg:block">
+                <h2 class="text-xl text-black/60">
+                    <p>{{ .Title }}</p>
+                </h2>
+                <div>
+                    <div class="text-gray-500 text-sm">
+                        <p>{{ .Params.blogDate }}</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="text-gray-600"></div>
+                </div>
+                <a href="{{ .Permalink }}">
+                    <button
+                        class="btnPrimary text-white py-4 px-6 rounded-lg bg-pri mt-3 lg:mt-5 text-sm bg-[--primaryColor]">Read
+                        Blog</button>
+                </a>
+            </div>
+        </div>
+    {{ end }}
+</div>
+</div>
+<!-- /Blog content -->

@@ -1,0 +1,10 @@
+{
+    "name": "towingnew",
+    "license": "MIT",
+    "licenselink": "https://github.com/<your-username>/<your-theme-repo>/blob/main/LICENSE",
+    "description": "My custom Hugo theme.",
+    "homepage": "https://github.com/<your-username>/<your-theme-repo>",
+    "tags": ["blog", "portfolio"],
+    "features": ["blog", "portfolio"]
+  }
+  

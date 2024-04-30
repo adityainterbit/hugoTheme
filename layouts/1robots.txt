@@ -1,0 +1,7 @@
+{{ if .Site.Params.enableRobotsTXT }}
+User-agent: *
+Disallow:
+{{ else }}
+User-agent: *
+Disallow: /
+{{ end }}

@@ -1,0 +1,85 @@
+<!-- Footer -->
+<footer
+class="w-full flex items-center mr-auto ml-auto justify-center flex-col bg-cover bg-center bg-white text-black py-16 border-t">
+<div class="w-10/12 max-w-screen-2xl text-left grid lg:grid-cols-footer gap-7">
+    <div class="flex flex-col justify-between">
+        <div>
+            <a class="text-3xl lg:text-3xl font-extrabold text-black  uppercase" href="/">
+                <p>{{ .Site.Data.data.common_data.city }} {{ .Site.Data.data.common_data.default_service }}</p>
+            </a>
+            <div class="text-gray-700 md:text-xl mt-2 font-semibold">
+                {{ range $key, $value := .Site.Data.data.common_data }}
+                    {{ if (strings.HasPrefix $key "review_rating_") }}
+                    <p>{{ $value }}</p>
+                    {{ end }}
+                {{ end }}
+            </div>
+            <img alt="star-set-alt" title="Star Set Image" src="{{ relURL "images/star-set.webp" }}" width="256"
+                height="75" decoding="async" data-nimg="1" class="mt-3 w-auto" loading="lazy"
+                style="color:transparent" />
+            <div class="mt-4"></div>
+        </div>
+    </div>
+    <div class="flex-col flex text-center items-center">
+        <h3 class="text-lg lg:text-3xl font-extrabold mb-5 text-black">
+            <div class="text-left">
+                <p>{{ .Site.Data.data.common_data.footer_payment_title}}</p>
+            </div>
+        </h3>
+        <img alt="bank-card-alt" title="Bank Card Image" src="{{ relURL "images/bank-cards.webp" }}" width="400"
+            height="50" decoding="async" data-nimg="1" class="w-auto" loading="lazy"
+            style="color:transparent" />
+        <h3 class="mt-0 text-left font-semibold text-xl text-gray-700 h-auto">
+            <div class="text-left">
+                <p>{{ .Site.Data.data.common_data.footer_follow_us_slogan}}</p>
+            </div>
+        </h3>
+        <div class="flex items-center mt-2">
+            <a target="_blank" title="Instagram" class="socialLink bg-pri" style="background-color:#25407a"
+                href="https://www.instagram.com">
+                <img alt="insta_log" title="Instagram icon" src="{{ relURL "images/insta.webp" }}" width="20" height="20"
+                    decoding="async" data-nimg="1" loading="lazy" style="color:transparent" />
+            </a>
+            <a target="_blank" title="Twitter" class="socialLink bg-pri" style="background-color:#25407a"
+                href="https://twitter.com">
+                <img alt="twitter_logo" title="twitter logo" src="{{ relURL "images/twitter.webp" }}" width="20"
+                    height="20" decoding="async" data-nimg="1" loading="lazy" style="color:transparent" />
+            </a>
+            <a target="_blank" title="Facebook" class="socialLink bg-pri" style="background-color:#25407a"
+                href="https://www.facebook.com">
+                <img alt="fb_icon" title="Facebook logo" src="{{ relURL "images/fb.webp" }}" width="20" height="20"
+                    decoding="async" data-nimg="1" loading="lazy" style="color:transparent" />
+            </a>
+        </div>
+    </div>
+    <div>
+        <h3 class="text-3xl font-extrabold text-black">
+            <div class="text-left"></div>
+        </h3>
+        <ul class="grid mt-2 lg:space-y-1 text-lg">
+            {{ range .Site.Data.data.common_data.footer_quick_links_list }}
+                <li>
+                    <a href="{{ .path | urlize }}">
+                        <p>{{ .name }}</p>
+                    </a>
+                </li>
+            {{ end }}
+        </ul>
+    </div>
+    <div>
+        <h2 class="text-3xl font-extrabold text-black">Services</h2>
+        <ul class="text-lg mt-2 lg:space-y-1">
+            {{ range .Site.Data.data.common_data.footer_list }}
+                <li>
+                    <a href="{{- printf "%s-%s" (relURL .name | urlize) (lower $.Site.Data.data.common_data.state_code) }}">
+                        <p>{{ .name }}</p>
+                    </a>
+                </li>
+            {{ end }}
+
+        </ul>
+    </div>
+</div>
+
+</footer>
+<!-- /Footer -->

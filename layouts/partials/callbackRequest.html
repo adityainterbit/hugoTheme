@@ -1,0 +1,68 @@
+<!-- Contact Us Section -->
+<section
+class="w-full flex items-center mr-auto ml-auto justify-center flex-col bg-cover bg-center lg:px-0 py-20">
+<div
+    class="w-10/12 lg:w-9/12 max-w-screen-2xl flex items-center justify-center flex-col bg-cover bg-center lg:grid grid-cols-2 gap-7 lg:gap-0">
+    <form method="post" class="lg:pr-10 lg:border-r flex items-center flex-col">
+        <h2 class="lg:text-left w-full text-3xl lg:text-3xl font-extrabold text-black ">
+            <div class="text-left">
+                <p>{{ .Site.Data.data.common_data.contact_form_title }}</p>
+            </div>
+        </h2>
+        <div class="space-y-3 mt-6">
+            {{ $fields := .Site.Data.data.common_data.contact_form_feilds }}
+            {{ range $fields }}
+                {{ $field := . }}
+                {{ if eq $field.type "textarea" }}
+                    <textarea required="" id="{{ $field.name }}" name="{{ $field.name }}" type="{{ $field.type }}" placeholder="{{ $field.placeholder }}"
+                        class="w-full border border-gray-300 focus:ring-2 flex-1 focus:ring-blue-500 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed rounded-lg focus:outline-none px-6 py-3"></textarea>
+                {{ else }}
+                    <input required="" id="{{ $field.name }}" name="{{ $field.name }}" type="{{ $field.type }}" placeholder="{{ $field.placeholder }}"
+                        class="w-full border border-gray-300 focus:ring-2 flex-1 focus:ring-blue-500 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed rounded-lg focus:outline-none px-6 py-3"
+                        value="" />
+                {{ end }}
+            {{ end }}
+        </div>
+        <button type="submit"
+            class="btnPrimary bg-[--primaryColor] text-white rounded-lg p-4 mt-5 w-full font-semibold">{{ .Site.Data.data.common_data.contact_form_submit }}</button>
+    </form>
+    <div class="lg:pl-10 text-center lg:text-left h-full flex flex-col items-center lg:items-start ">
+        <div
+            class="w-10/12 lg:w-9/12 max-w-screen-2xl flex items-center justify-center flex-col bg-cover bg-center ">
+            <h3 class="text-3xl font-extrabold lg:text-3xl  text-black  uppercase text-center">
+                <div class="text-center">
+                    <p>{{ .Site.Data.data.common_data.default_service }} in {{ .Site.Data.data.common_data.city }}, {{ .Site.Data.data.common_data.state }}</p>
+                </div>
+            </h3>
+            <div class="w-24 h-2 mt-7 mb-3 bg-black "></div>
+        </div>
+        <div class="text-lg lg:text-xl mt-2 text-gray-500">
+            <p>{{ $customTags := .Site.Data.data.custom_tag }}
+                {{ partial "replace_placeholders.html" (dict "text" .Site.Data.data.common_data.contact_form_short_text "customTags" $customTags "service" .Params.name "zip" .Params.zipCode) }}
+                </p>
+        </div>
+        <div class="flex justify-center w-full">
+            <a title="Click to call us"
+                class="btnPrimary bg-pri flex w-fit items-center gap-3 rounded-full py-3 px-5 text-center lg:px-7 cursor-pointer mt-6 bg-[--primaryColor] text-white"
+                href="tel:(214) 774-0277">
+                <span class="undefined">
+                    <span class="undefined"></span>
+                    <span class="undefined"></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        aria-hidden="true" class="h-7 lg:h-9 undefined">
+                        <path fill-rule="evenodd"
+                            d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="undefined"></span>
+                </span>
+                <span>
+                    <p class="font-semibold uppercase undefined">{{ .Site.Data.data.common_data.call_btn_title }}</p>
+                    <p class="-mt-1 text-3xl font-bold lg:text-3xl">{{ .Site.Data.data.common_data.phone }}</p>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+</section>
+<!-- /Contact Us Section -->

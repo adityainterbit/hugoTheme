@@ -1,0 +1,23 @@
+<!-- ZIP Codes Section -->
+<section class="flex flex-col lg:grid grid-cols-2 w-full">
+    <div>
+        <iframe title="map" class="w-full h-96 lg:h-full" frameborder="0" scrolling="no" marginheight="0"
+            marginwidth="0" id="gmap_canvas"
+            src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=32.736514%20-96.905719+(Window%20Installation%20Minniapolis)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+    </div>
+    <div class="p-10 text-center lg:text-left bg-[--primaryColor]">
+        <h2 class="text-3xl text-white lg:text-3xl font-extrabold text-left">{{ .Site.Data.data.common_data.zip_header }}</h2>
+        <div class="mt-5 lg:mt-8 grid grid-cols-3 lg:grid-cols-6 gap-2">
+            {{ $serviceName := .Params.serviceName }}
+            {{ range .Site.Data.data.common_data.zip_list }}
+            <a class="px-4 py-2 text-sm rounded border text-white hover:text-black border-white/80 text-center hover:bg-white transition-all"
+               href=" {{ relURL (printf "%s/%s" ( $serviceName | urlize) ( .name | urlize)) }} ">
+                <div class="text-left">
+                    <p>{{ .name }}</p>
+                </div>
+            </a>
+            {{ end }}
+        </div>
+    </div>
+</section>
+<!-- /ZIP Codes Section -->

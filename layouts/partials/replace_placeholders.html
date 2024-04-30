@@ -1,0 +1,12 @@
+{{ $customTags:=.customTags }}
+{{ $service:= .service}}
+{{ $zip:=.zip }}
+{{ $sentence := .text }}
+{{ range $placeholder, $synonyms := $customTags }}
+    {{ $synonymsList := split $synonyms "||" }}
+    {{ $synonym := index (shuffle $synonymsList) 1 }}
+    {{ $sentence = replaceRE $placeholder $synonym $sentence }}
+{{ end }}
+{{ $sentence = replaceRE "<#!#!#!>service_name<#!#!#!>" $service $sentence }}
+{{ $sentence = replaceRE "<#!#!#!>zip<#!#!#!>" $zip $sentence }}
+{{ $sentence | markdownify }}

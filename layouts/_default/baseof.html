@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+{{ partial "head.html" . }}
+
+
+<body>
+  
+  <div>
+    <header class="w-full flex items-center mr-auto ml-auto justify-center flex-col bg-cover bg-center">
+      {{ partial "nav.html" . }}
+      {{ partial "banner.html" . }}
+      </header>
+      {{ partial "mainContent.html" . }}
+      {{/*  {{ partial "serviceContent2.html" . }}
+      {{ partial "zipCode.html" . }}
+      {{ partial "our-services-list.html" . }}
+      {{ partial "ourObjective.html" . }}
+      {{ partial "serviceContent3.html" . }}
+      {{ partial "faq.html" . }}
+      {{ partial "buzzSection.html" . }}
+      {{ partial "callbackRequest.html" . }}  */}}
+      {{ partial "footer.html" . }}
+
+    </div>
+  </div>
+
+  {{/*  {{ partial "header.html" . }}  */}}
+
+  <main>
+    {{/*  {{ block "main" . }}{{ end }}  */}}
+  </main>
+
+
+  {{/*  {{ partial "footer.html" . }}  */}}
+
+</body>
+<script src="{{ relURL "js/script.js" }}" defer></script>
+</html>
